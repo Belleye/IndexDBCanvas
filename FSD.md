@@ -23,6 +23,9 @@ This document defines the functional specifications for a **PowerApps PCF** comp
   - `colData` (string): The dataset content.
 - **Retrieve data dynamically** without predefined schemas.
 - **Fetch all records** when `*` is used as the `colName`.
+- **Database Configuration:**
+  - Configurable database name (default: "PCFStorage")
+  - Configurable store name (default: "datasets")
 
 ### **2.2 Data Modification**
 - **Insert/Update:** `put()` is used to upsert data.
@@ -44,6 +47,12 @@ This document defines the functional specifications for a **PowerApps PCF** comp
 
 ## **3. Technical Design**
 ### **3.1 IndexedDB Operations**
+#### **Database Initialization**
+- Automatic database creation and version management
+- Handles version conflicts and upgrades gracefully
+- Creates object store if not exists during upgrades
+- Implements error handling for database operations
+
 #### **Upsert Data**
 - Adds new data or updates existing records.
 - Deletes the record if `colData` is null/undefined.
@@ -61,8 +70,13 @@ This document defines the functional specifications for a **PowerApps PCF** comp
 
 ### **3.3 PCF Manifest Inputs & Outputs**
 #### **Inputs:**
-- `colName`: Identifier for the dataset.
-- `colData`: String data to be stored.
+- `colName`: Identifier for the dataset (required).
+- `colData`: String data to be stored (optional).
+- `writeAction`: Boolean flag to determine operation type (required):
+  - True: Write operation
+  - False: Read operation
+- `dbName`: Name of the IndexedDB database (optional, default: "PCFStorage")
+- `storeName`: Name of the IndexedDB store (optional, default: "datasets")
 
 #### **Outputs:**
 - `lastDBChange`: Details of the last IndexedDB change.
@@ -74,3 +88,5 @@ This document defines the functional specifications for a **PowerApps PCF** comp
 - **Scalability:** Ensure **indexed queries** for fast retrieval.
 - **Offline Support:** Full functionality without an internet connection.
 - **Security:** Data is stored in the browser's IndexedDB but does not contain sensitive information.
+- **Error Handling:** Robust error management for database operations and version conflicts.
+- **Version Management:** Automatic database version management and upgrades.

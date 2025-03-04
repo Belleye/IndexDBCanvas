@@ -1,0 +1,7 @@
+pac pcf init --namespace Belleye --name indexDB --template field 
+npm install
+npm run build
+npm start watch
+
+pac auth create --url https://org9f8757fa.crm6.dynamics.com
+pac pcf push --publisher-prefix Belleye

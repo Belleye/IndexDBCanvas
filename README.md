@@ -7,7 +7,6 @@ A PowerApps PCF component that enhances offline capabilities by leveraging Index
 - [IndexedDB PCF Component for PowerApps](#indexeddb-pcf-component-for-powerapps)
   - [Index](#index)
   - [The Story Behind This Component](#the-story-behind-this-component)
-  - [Overview](#overview)
   - [Key Features](#key-features)
   - [Usage](#usage)
     - [Properties](#properties)
@@ -24,11 +23,7 @@ A PowerApps PCF component that enhances offline capabilities by leveraging Index
 
 ## The Story Behind This Component
 
-Anyone who has created and offline app utilizing the `SaveData` and `LoadData` functions, no doubt have found limitations in terms of storage capacity and efficiency, particularly when handling large datasets. This component addresses these challenges by harnessing the power of IndexedDB, a web storage solution that allows for efficient data storage and retrieval even without a network connection. Meaning you won't need to rely on Dataverse to get the offline experience you need.
-
-## Overview
-
-This PCF component provides a robust solution for handling large datasets in PowerApps by utilizing the browser's IndexedDB storage. It's designed to work seamlessly with PowerApps' offline mode, allowing applications to maintain functionality even without network connectivity. A full solution is available in the [releases](https://github.com/PowerAppsCommunity/IndexDBCanvas/releases) section.
+Anyone who has created and offline app utilizing the `SaveData` and `LoadData` functions, no doubt have found limitations in terms of storage capacity and efficiency, particularly when handling large datasets. This component addresses these challenges by harnessing the power of IndexedDB, a web storage solution that allows for efficient data storage and retrieval even without a network connection. Meaning you won't need to rely on Dataverse to get the offline experience you need. A full solution is available in the [releases](https://github.com/Belleye/IndexDBCanvas/releases) section.
 
 ## Key Features
 
